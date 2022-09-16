@@ -1,0 +1,101 @@
+{% extends 'layout-admin.html' %}
+{% load static %}
+{% block title %}
+<title>Admin-Dashboard</title>
+{% endblock %}
+{% block main_content %}
+<style>
+    .card-body a{
+    text-decoration:none;
+    color:#fff;
+    }
+
+    .card-body a:hover{
+    color:orange;
+    }
+
+</style>
+<div class="container">
+    <h1 class="text-center text-white">Admin Dashboard</h1>
+    <hr style="color:white;">
+    <br/>
+    {% include 'messages.html' %}
+    <div class="row">
+        <div class="col">
+            <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Artwork</div>
+                <div class="card-body">
+                    <a href="/mandala_circle/get_original">
+                        <h1 class="card-title text-center">{{artwork}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-info mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Commission Request</div>
+                <div class="card-body">
+                    <a href="/mandala_circle/get_commission"><h1 class="card-title text-center">{{commission}}</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card text-white bg-warning mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Feedback</div>
+                <div class="card-body">
+                    <a href="/mandala_circle/get_feedback"><h1 class="card-title text-center">{{feed}}</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Orders</div>
+                <div class="card-body">
+                    <a href="/mandala_circle/get_orders"><h1 class="card-title text-center">{{order}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card text-white bg-danger mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Users</div>
+                <div class="card-body">
+                    <a href="/admins/users"> <h1 class="card-title text-center">{{user}}</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Admins</div>
+                <div class="card-body">
+                    <a href="/admins/admins"><h1 class="card-title text-center">{{admin}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Gallery Art</div>
+                <div class="card-body">
+                    <a href="/mandala_circle/get_gallery">
+                        <h1 class="card-title text-center">{{gallery}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

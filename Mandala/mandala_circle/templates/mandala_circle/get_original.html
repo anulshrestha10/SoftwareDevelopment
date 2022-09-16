@@ -1,0 +1,41 @@
+{% extends 'layout-admin.html' %}
+{% block title %}
+
+    <title>Original</title>
+{% endblock %}
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center text-light">All Originals</h1>
+            <div class="card p-2">
+                {% include 'messages.html' %}
+                <a class="btn btn-primary btn-sm ms-auto" href="/mandala_circle/originalForm">Add Products</a>
+                <table class="table-striped">
+                    <tr>
+                        <th>Product Name</th>
+                        <th> Product Price</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+
+                    </tr>
+                    {% for i in originals %}
+                    <tr>
+                        <td> {{ i.product_name }}</td>
+                        <td> {{ i.product_price }}</td>
+                        <td> {{ i.product_description }}</td>
+                        <td> <img src="/{{i.product_image}}" alt="image" width="100"></td>
+                        <td><a class="btn btn-primary btn sm"
+                               href="/mandala_circle/update_original/{{i.id}}">Edit</a> &nbsp;
+                            <a class="btn btn-danger"
+                               href="/mandala_circle/delete_original/{{i.id}}"
+                               onclick="return confirm ('Are you sure you want to delete?')">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

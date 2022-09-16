@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+{% block main_content %}
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            {% include 'messages.html' %}
+            <div class="card p-4">
+                <form class="form myForm  " action="" method="POST">
+                    {% csrf_token %}
+                    <h1 class="text-center text-dark" style="font-size:50px;">Log In</h1>
+                    <div class="text-center text-dark fw-normal lh-base "style="font-size:20px;"><small>New to this site? <a
+                            href="register" class="text-danger fw-bold">Sign up</a> </small>
+                    </div><br/>
+                    {{ form_login }}
+                    <div class="text-center fw-normal">
+                        <small><a href="/reset_password">Forgot Password ?</a></small> <br>
+                        <button type="submit" class="btn btn-primary mt-4">Login</button>
+                    <br>
+
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Enter username";
+    form_fields[2].placeholder = "Enter Password";
+
+
+
+    for (var field in form_fields){
+    form_fields[field].className = 'form-control my-2'
+    }
+
+
+
+
+</script>
+{% endblock main_content %}

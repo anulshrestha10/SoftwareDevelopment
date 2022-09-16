@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+{% block title %}
+
+<title>Gallery</title>
+
+{% endblock%}
+
+{% block main_content %}
+<div class="container5 bg-white mt-5 ">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for art in gallery %}
+            <div class="card m-4" style="width:20rem; border:1px solid black;">
+                <img src="/{{art.image}}" class="card-img-top" alt="...">
+                <hr>
+
+                <h5 class="card-title">{{art.name}}</h5>
+
+            </div>
+            {%endfor%}
+    </div>
+{% endblock main_content%}

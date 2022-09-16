@@ -1,0 +1,81 @@
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark text-white bg-black p-4">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#" style="font-family:serif; font-size:20px;"><i class="fa fa-snowflake-o"
+                                                                                       aria-hidden="true"></i> &nbsp;
+            MANDALA CIRCLE<br/> &nbsp; &nbsp; &nbsp;&nbsp;Intricate Artworks by Srijan</a>
+
+        <!--    toggler button for mobile nav-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {{ activate_home }}" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Shop
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/mandala_circle/show_original">All originals</a></li>
+                        <li><a class="dropdown-item" href="/mandala_circle/allCommission">Commissions</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ activate_gallery}}" href="/mandala_circle/show_gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ activate_about_me }}" href="/mandala_circle/aboutMe">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ activate_contact }}" href="/mandala_circle/contact">Contact</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav">
+                    <li><img src="/{{request.user.profile.profile_pic}}"  class="rounded-circle " alt="avatar image"
+                    height="35" width="30">
+                </ul>
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        {{request.user.username|capfirst}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="/mandala_circle/show_orders">Orders</a></li>
+                        <li><a class="dropdown-item" href="/password_change">Change Password</a></li>
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/mandala_circle/cart" class="nav-link {{activate_cart}}">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <p id="cart-total">{{cartItems}}</p>
+                </li>
+
+                {% else %}
+                <li>
+                    <a class="nav-link {{activate_login}}" href="/login"><i class="fa fa-sign-in"
+                                                                            aria-hidden="true"></i>&nbspLogin</a>
+                </li>
+
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+
+
+

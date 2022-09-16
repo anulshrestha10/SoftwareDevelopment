@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{%block title%}
+<title>Details</title>
+{%endblock title%}
+
+{%block main_content%}
+<div class="container my-5 bg-white">
+    <div class="row ">
+        <h1 class="text-center text-dark mt-4 mb-3">Original Mandala</h1>
+        <hr>
+        {% for i in originals %}
+        <div class="col-sm-6 text-center align-self-center mb-5">
+            <img src="/{{i.product_image}}" alt="" class="img-fluid img-thumbnail">
+        </div>
+        <div class="col-sm-5 offset-sm-1">
+            <h2>{{i.product_name}}</h2>
+            <hr>
+            <p>{{i.product_description}}</p> <br>
+            <h4><small class="fw-light ">Rs.
+                {{i.product_price}}</small></h4> <br>
+
+            {% if request.user.is_authenticated %}
+            <button data-product="{{i.id}}" data-action="add" class="btn btn-secondary add-btn update-cart">Add to Cart</button>
+
+            <a  class="btn btn-outline-dark shadow px-5 py-2 ms-4" href="/mandala_circle/show_original">&#x2190; Continue Shopping</a>
+            {% endif %}
+            {%endfor%}
+
+            <h5 class="mt-5">Available Offers</h5>
+            <ul>
+                <li>Bank Offer 5%  on Paypal </li>
+                <li>Special Price Get Freeshipping on purchase over Rs 1000</li>
+                <li>Promo discount code available</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+{%endblock main_content%}
+

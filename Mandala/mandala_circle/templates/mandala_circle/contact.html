@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block title %}
+<title>About Me</title>
+{% endblock title %}
+
+{% block main_content%}
+
+
+<div class="card mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static 'images/c1.jpg' %}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col text-center text-dark mt-5 ">
+            {% include 'messages.html' %}
+            <h1 style="font-family:serif; font-size:50px;">GET IN TOUCH</h1>
+            <h6 class="mt-5">General  <a href="giveFeedback"
+                               style="color:#000">Feedback</a></h6>
+            <h6>Questions about my work?</h6>
+            <h6>Are you looking to <a href="allCommission" style="color:#000">Commissions</a> a piece?</h6>
+            <h6>Are you interested in a collaboration?</h6><br/>
+            <h6>Email me at <a href="mailto:manisha.basukala012@gmail.com"
+                               style="color:#000">manisha.basukala012@gmail.com </a> for more queries.</h6>
+        </div>
+    </div>
+</div>
+
+
+{% endblock main_content %}

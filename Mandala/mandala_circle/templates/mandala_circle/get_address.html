@@ -1,0 +1,48 @@
+{% extends "layout-admin.html" %}
+{% load static %}}
+
+{% block title %}
+<title>Address</title>
+{% endblock title %}
+
+{% block main_content%}
+<div class="container-fluid bg-white" style="min-height:500px;">
+    <div class="row">
+        <div class="col mt-4 mb-2">
+            <h1 class="text-center text-uppercase m-4 font-weight-bold">Shipping Detail</h1>
+            <hr>
+            <div class="card ">
+                <div class="card-body shadow-lg "  style="min-height:500px;">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Username</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Zip Code</th>
+
+                        </tr>
+                        </thead>
+                        <tbody class="align-items-center">
+                        {% for ship in shipping %}
+
+                        <tr>
+                            <td>{{ship.order.id}}</td>
+                            <td>{{ship.user}}</td>
+                            <td>{{ship.address}}</td>
+                            <td>{{ship.city}}</td>
+                            <td>{{ship.state}}</td>
+                            <td>{{ship.zipcode}}</td>
+                            {%endfor%}
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

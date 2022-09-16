@@ -1,0 +1,68 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark text-white bg-black p-4">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#" style="font-family:serif; font-size:20px;"><i class="fa fa-snowflake-o"
+                                                                                       aria-hidden="true"></i> &nbsp;
+            MANDALA CIRCLE<br/> &nbsp; &nbsp; &nbsp;&nbsp;Intricate Artworks by Srijan</a>
+
+        <!--    toggler button for mobile nav-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {{ activate_dashboard }}" aria-current="page" href="/admins/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ activate_admin }}" aria-current="page" href="/admins/adminpage">Adminpage</a>
+                </li>
+
+                <li class="nav-item dropdown mx-2 ">
+                    <a class="nav-link dropdown-toggle {{ activate_original}}" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Manage Shop
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="/mandala_circle/get_original">Manage Originals</a></li>
+                        <li><a class="dropdown-item" href="/mandala_circle/get_gallery">Manage Art</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ activate_commission}}" href="/mandala_circle/get_commission">Commission Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ activate_contact}}" href="/mandala_circle/get_feedback">Feedback</a>
+                </li>
+
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle {{activate_orders}}" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Order Detail
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="/mandala_circle/get_orders">Order</a></li>
+                        <li><a class="dropdown-item" href="/mandala_circle/get_address">Shipping Info</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        {{request.user.username|capfirst}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+
+

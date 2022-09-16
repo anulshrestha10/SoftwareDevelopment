@@ -1,0 +1,39 @@
+{% extends 'layout-admin.html' %}
+{% block title %}
+<title>Commission</title>
+{% endblock%}
+
+{% block main_content %}
+<div class="container5">
+    <div class="row bg-white">
+
+        <div class="col-md-10 offset-md-1 ">
+            <h1 class="text-center">Commission Request</h1>
+            <div class="card p-3 m-3">
+                <table class="table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for i in commission %}
+                    <tr>
+                        <td> {{ i.name }}</td>
+                        <td> {{ i.email }}</td>
+                        <td> {{ i.subject }}</td>
+                        <td>{{ i.message}}</td>
+                        <td><a class="btn btn-primary"
+                               href="mailto:"
+                               onclick="return confirm ('Are you sure you want to send mail?')">Send Reply</i>
+                                </a></td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,36 @@
+{% extends 'layout-admin.html' %}
+{% block title %}
+
+<title>Gallery</title>
+{% endblock %}
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center text-light">Gallery</h1>
+            <div class="card p-2">
+                {% include 'messages.html' %}
+                <a class="btn btn-primary btn-sm ms-auto" href="/mandala_circle/galleryForm">Add Gallery</a>
+                <table class="table-striped">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+
+                    </tr>
+                    {% for art in gallery %}
+                    <tr>
+                        <td> {{ art.name }}</td>
+                        <td> <img src="/{{art.image}}" alt="image" width="100"></td>
+                        <td>&nbsp;
+                            <a class="btn btn-danger"
+                               href="/mandala_circle/delete_galleryart/{{art.id}}"
+                               onclick="return confirm ('Are you sure you want to delete?')">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

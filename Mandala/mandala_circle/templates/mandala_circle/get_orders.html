@@ -1,0 +1,75 @@
+{% extends "layout-admin.html" %}
+{% load static %}}
+
+{% block title %}
+<title>Orders</title>
+{% endblock title %}
+
+{% block main_content%}
+<div class="container-fluid bg-white" style="min-height:500px;">
+    <div class="row">
+        <div class="col mt-4 mb-2">
+            <h1 class="text-center text-uppercase m-4 font-weight-bold">Order History</h1>
+            <hr>
+            <div class="card ">
+                <div class="card-body shadow-lg "  style="min-height:500px;">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Username</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+
+                        </tr>
+                        </thead>
+                        <tbody class="align-items-center">
+                        {% for item in items %}
+
+                        <tr>
+                            <td>{{item.order_id}}</td>
+                            <td>{{item.order.user}}</td>
+                            <td>{{item.product.product_name}}</td>
+                            <td>Rs {{item.product.product_price}}</td>
+                            <td>{{item.quantity}}</td>
+                            {% if item.order.complete %}
+                            <td><small class="badge bg-success">
+                                Paid
+                            </small></td>
+                            {%else%}
+                            <td><small class="badge bg-warning">
+                                Not paid
+                            </small></td>
+                            {%endif%}
+                            {% if item.delivered_status %}
+                            <td><small class="badge bg-success">
+                                Delivered
+                            </small></td>
+                            {%else%}
+                            <td><small class="badge bg-warning">
+                                Not Delivered
+                            </small></td>
+                            {%endif%}
+                            <td> <a class="btn btn-primary"
+                               href="/mandala_circle/update_status/{{item.id}}/1"
+                               onclick="return confirm ('Are you sure you want to deliver?')"><i class="fa fa-check" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="btn btn-danger btn sm"
+                               href="/mandala_circle/update_status/{{item.id}}/0"onclick="return confirm ('Are you sure you want to cancel?')"><i class="fa fa-times" aria-hidden="true"></i>
+                                </a> &nbsp;
+                            </td>
+                            {%endfor%}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
